@@ -1,0 +1,164 @@
+/*------------------GENERAL------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-font: 'Orbitron', sans-serif;
+  --main-bg-color: rgb(8,7,5);
+  --main-font-color: #FF810A;
+  --dark-color: #080D0D;
+  --orange-light: #FF990A;
+  --snake-color: #11D147;
+  --food-color: #9254CC;
+}
+
+body {
+  font-family: var(--main-font);
+  text-align: center;
+  background-color: var(--main-bg-color);
+  color: var(--main-font-color);
+  overflow: hidden;
+}
+
+
+/*------------------GAME BOARD------------------*/
+.welcome{
+  margin: 20px 0 10px;
+}
+
+#gameboard {
+  border: 5px solid var(--orange-light);
+  margin: 15px auto;
+  background-color: var(--dark-color);
+  position: relative;
+}
+
+
+/*------------------NEW HIGHSCORE------------------*/
+#new-highscore{
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 160px;
+  background: rgb(8,7,5, 0.85);
+  line-height: 2.3;
+}
+
+#new-highscore #name-input{
+  padding: 8px;
+  font-family: var(--main-font);
+  font-size: 1rem;
+  background-color: var(--dark-color);
+  border: none;
+  border-bottom: 1px solid var(--main-font-color);
+  color: var(--snake-color);
+}
+
+#new-highscore .gif{
+  display: block;
+  margin: 20px auto;
+}
+
+
+/*------------------GAME OVER------------------*/
+
+#game-over {
+  display: none;
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 160px;
+  background: rgb(8,7,5, 0.85);
+  line-height: 2;
+}
+
+#game-over table{
+  margin: 10px auto;
+  padding: 8px;
+  text-align: left;
+  color: var(--snake-color);
+}
+
+th {
+  font-size: 1.1rem;
+}
+
+td,th {
+  padding-right: 30px;
+}
+
+td:nth-child(even), th:nth-child(even){
+  padding-left: 30px;
+  padding-right: 0px;
+  color: var(--food-color);
+  text-align: right;
+}
+
+#game-over button{
+  margin: 20px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-family: var(--main-font);
+  font-weight: 600;
+  background-color: var(--orange-light);
+  border: 3px solid var(--dark-color);
+  transition: background-color 0.4s ease;
+}
+
+#game-over button:hover{
+  background-color: var(--main-font-color);
+  cursor: pointer;
+}
+
+#game-over button:active{
+  position: relative;
+  top: 2px;
+}
+
+
+/*------------------LEARNINGS------------------*/
+#learnings{
+  display: none;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  padding-top: 140px;
+  height: 800px;
+  perspective: 400px;
+  width: 100vw;
+  background: rgb(8,7,5, 0.85);
+  line-height: 1.5;
+}
+
+#crawl{
+  position: relative;
+  transform-origin: 50% 100%;
+  /*animation: crawl 50s linear;*/
+}
+
+#learnings ul {
+  list-style-type: none;
+  max-width: 400px;
+  text-align: justify;
+}
+
+ul li{
+  margin-top: 20px;
+}
+
+@keyframes crawl {
+  0%{
+    top:540px;
+    transform: rotateX(20deg) translateZ(400px);
+  }
+  100%{
+    top: -500px;
+    transform: rotateX(25deg) translateZ(0px);
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Elin's snake game</title>
+
+  <!--Links-->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+  <div class="screen">
+    <h1 class="welcome">Welcome to Elin's snake-game!</h1>
+    <p class="instruction">Press your arrow-keys to start.</p>
+    <canvas id="gameboard" width="1000" height="500"></canvas>
+    <h3>Score: <span id="score">0</span></h3>
+
+    <div id="new-highscore">
+      <h1>Congratulations, you made it to top 3!</h1>
+      <label for="text">Please enter your name:</label>
+      <input type="text" placeholder="Type your name here" name="name" id="name-input">
+      <iframe class="gif" src="https://giphy.com/embed/sjr7k1uuO0B0c" width="480" height="344" frameBorder="0" allowFullScreen></iframe>
+    </div>
+
+    <div id="game-over">
+      <h1>Game Over</h1>
+      <table>
+        <tr>
+          <th>Highscore</th>
+          <th>Points</th>
+        </tr>
+        <tr>
+          <td><span id="win-name"></span></td>
+          <td><span id="win-score"></span></td>
+        </tr>
+        <tr>
+          <td><span id="second-name"></span></td>
+          <td><span id="second-score"></span></td>
+        </tr>
+        <tr>
+          <td><span id="third-name"></span></td>
+          <td><span id="third-score"></span></td>
+        </tr>
+      </table>
+      <h2>Do you want to restart game?</h2>
+      <button id="restart" type="button" name="button">Yes</button>
+      <button id="no-restart" type="button" name="button">No</button>
+    </div>
+
+      <div id="learnings">
+        <div id="crawl">
+          <h1>My Learnings</h1>
+          <ul>
+            <li>I love flowcharts</li>
+            <li>The basics of canvas</li>
+            <li>Deeper understanding of objects, arrays and objects within arrays</li>
+            <li>Confidence that I can break down a problem myself without a turtorial</li>
+            <li>Why to use functions</li>
+            <li>Deeper understanding of different array methods</li>
+            <li>Different event listeners (keydown, input and click)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="game.js" type="text/javascript"></script>
+</body>
+
+</html>
