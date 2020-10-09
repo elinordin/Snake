@@ -41,7 +41,7 @@ let snakeTail = [{
 
 let colliding = false;
 let distance = 20;
-let speed = 200; //400 start-speed
+let speed = 400; //400 start-speed
 let rightInterval, downInterval, leftInterval, upInterval;
 let rightCycle = false; //Detects wether the button has already been pressed
 let downCycle = false;
@@ -336,7 +336,7 @@ function reset() {
   document.getElementById("game-over").style.display = "none";
   gameInterval = setInterval(draw, 20);
   score = 0;
-  speed = 200; //400
+  speed = 400; //400
   snakeHeadFromLeft = 20;
   snakeHeadFromTop = 0;
   snakePath = [{
