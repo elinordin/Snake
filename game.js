@@ -20,12 +20,15 @@ let h3score = 0;
 }]*/
 let input = document.getElementById("name-input");
 let score = 0;
+
 const foodSize = 20;
 let foodFromLeft = randomLeftNumber();
 let foodFromTop = randomTopNumber();
+
 const snakeSize = 20;
 let snakeHeadFromLeft = 20;
 let snakeHeadFromTop = 0;
+
 let snakePath = [{ //Creates the first location of the snake-tail
   headFromLeft: snakeHeadFromLeft - 20,
   headFromTop: snakeHeadFromTop
@@ -34,13 +37,11 @@ let snakeTail = [{
   tailFromLeft: snakePath[0].headFromLeft,
   tailFromTop: snakePath[0].headFromTop
 }]; //Creates the first snake-tail part (following the head)
+
 let colliding = false;
 let distance = 20;
 let speed = 400; //400 start-speed
-let rightInterval;
-let downInterval;
-let leftInterval;
-let upInterval;
+let rightInterval, downInterval, leftInterval, upInterval;
 let rightCycle = false; //Detects wether the button has already been pressed
 let downCycle = false;
 let leftCycle = false;
@@ -49,7 +50,7 @@ let upCycle = false;
 
 //------------------------GAME------------------------
 gameInterval = setInterval(draw, 20);
-document.addEventListener("keydown", keyDownHandler);
+setupEventListeners();
 
 
 function draw() {
@@ -109,20 +110,10 @@ function draw() {
       displayHighscore();
       document.getElementById("game-over").style.display = "block"; //Show game-over window
     }
-    document.getElementById("restart").addEventListener("click", function(){ //If restart-button is clicked - reload game
-      reset();
-      //location.reload();
-    })
-    document.getElementById("no-restart").addEventListener("click", function(){
-      document.getElementById("game-over").style.display = "none"; //Do not display game-over screen
-      document.getElementById("crawl").style.animation = "crawl 50s linear"; //Apply the crawl animation
-      document.getElementById("learnings").style.display = "flex"; //Display my learnings
-    })
   };
 
   if (snakeHeadFromLeft == foodFromLeft && snakeHeadFromTop == foodFromTop) { //If the snakes position is equal to the foods position
-    foodFromLeft = randomLeftNumber(); //Randomizes new spot for the food
-    foodFromTop = randomTopNumber(); //Randomizes new spot for the food
+    newPlaceForFood();
     score += 10; //Add 10 points to score
     increaseSpeed(score);
     snakePath.push(new Path(snakeHeadFromLeft, snakeHeadFromTop)); //Add one item to Path-array
@@ -142,7 +133,11 @@ function draw() {
 
 
 //------------------------FUNCTIONS------------------------
-
+function setupEventListeners(){
+  document.addEventListener("keydown", keyDownHandler);
+  document.getElementById("restart").addEventListener("click", reset); //If restart-button is clicked - reset game
+  document.getElementById("no-restart").addEventListener("click", displayLearnings);
+}
 
 function drawFood() {
   ctx.beginPath();
@@ -151,6 +146,11 @@ function drawFood() {
   ctx.fill();
   ctx.stroke();
   ctx.closePath();
+}
+
+function newPlaceForFood(){
+  foodFromLeft = randomLeftNumber(); //Randomizes new spot from left
+  foodFromTop = randomTopNumber(); //Randomizes new spot from top
 }
 
 function randomLeftNumber() {
@@ -352,4 +352,10 @@ function reset(){
   clearInterval(leftInterval);
   clearInterval(upInterval);
   document.getElementById("score").innerHTML = score;
+}
+
+function displayLearnings(){
+  document.getElementById("game-over").style.display = "none"; //Do not display game-over screen
+  document.getElementById("crawl").style.animation = "crawl 50s linear"; //Apply the crawl animation
+  document.getElementById("learnings").style.display = "flex"; //Display my learnings
 }
