@@ -27,8 +27,8 @@ let foodFromLeft = randomLeftNumber();
 let foodFromTop = randomTopNumber();
 
 const snakeSize = 20;
-let snakeHeadFromLeft = 20;
-let snakeHeadFromTop = 0;
+let snakeHeadFromLeft = 40;
+let snakeHeadFromTop = canvas.height/2;
 
 let snakePath = [{ //Creates the first location of the snake-tail
   headFromLeft: snakeHeadFromLeft - 20,
@@ -337,8 +337,8 @@ function reset() {
   gameInterval = setInterval(draw, 20);
   score = 0;
   speed = 400; //400
-  snakeHeadFromLeft = 20;
-  snakeHeadFromTop = 0;
+  snakeHeadFromLeft = 40;
+  snakeHeadFromTop = canvas.height/2;
   snakePath = [{
     headFromLeft: snakeHeadFromLeft - 20,
     headFromTop: snakeHeadFromTop
