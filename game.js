@@ -28,7 +28,7 @@ let foodFromTop = randomTopNumber();
 
 const snakeSize = 20;
 let snakeHeadFromLeft = 40;
-let snakeHeadFromTop = canvas.height/2;
+let snakeHeadFromTop = 240;
 
 let snakePath = [{ //Creates the first location of the snake-tail
   headFromLeft: snakeHeadFromLeft - 20,
@@ -120,6 +120,13 @@ function drawFood() {
 function newPlaceForFood() {
   foodFromLeft = randomLeftNumber(); //Randomizes new spot from left
   foodFromTop = randomTopNumber(); //Randomizes new spot from top
+  for (let i = 0; i < snakePath; i++){
+    if (foodFromLeft === snakePath[i].snakeHeadFromLeft && foodFromTop === snakePath[i].snakeHeadFromTop){ //If food is colliding with path, randomize new place
+      foodFromLeft = randomLeftNumber(); //Randomizes new spot from left
+      foodFromTop = randomTopNumber(); //Randomizes new spot from top
+    }
+  }
+
 }
 
 function randomLeftNumber() {
@@ -338,7 +345,7 @@ function reset() {
   score = 0;
   speed = 400; //400
   snakeHeadFromLeft = 40;
-  snakeHeadFromTop = canvas.height/2;
+  snakeHeadFromTop = 240;
   snakePath = [{
     headFromLeft: snakeHeadFromLeft - 20,
     headFromTop: snakeHeadFromTop
