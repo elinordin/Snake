@@ -1,6 +1,6 @@
 # Snake
 ---
-Hyper Island - Design for the user module - Brief 2.
+Hyper Island - The Fundamentals module - Brief 2.
 
 
 ### :scroll: Brief:
